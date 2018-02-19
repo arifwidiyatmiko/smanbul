@@ -21,7 +21,8 @@ class E404 extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('front/header');
-		$this->load->view('front/404');
+		// $this->load->view('front/404');
+		$this->load->view('construcion');
 		$this->load->view('front/footer');
 	}
 }

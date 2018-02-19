@@ -13,11 +13,11 @@
             </div>
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="widget">
-                <h5>Sitemap</h5>
+                <h5>Eksternal Link</h5>
                 <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Laboratory</a></li>
-                  <li><a href="#">Medical treatment</a></li>
+                  <li><a href="http://dapo.dikdasmen.kemdikbud.go.id/sekolah/0BA3CA2C92FBE88A1CCB">DAPODIK</a></li>
+                  <li><a href="https://kabbogor.siap-ppdb.com/">PPDB Kab. Bogor</a></li>
+                  <li><a href="http://disdik.bogorkab.go.id/">Dinas Pendidikan Kab. Bogor</a></li>
                   <li><a href="#">Terms & conditions</a></li>
                 </ul>
               </div>
@@ -34,20 +34,14 @@
                   <li>
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
-									<i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
-								</span> Monday - Saturday, 8am to 10pm
-                  </li>
-                  <li>
-                    <span class="fa-stack fa-lg">
-									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-								</span> +62 0888 904 711
+								</span> +62251 8645033
                   </li>
                   <li>
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-								</span> hello@medicio.com
+								</span> sman1cibungbulang@outlook.com
                   </li>
 
                 </ul>
@@ -83,7 +77,7 @@
             <div class="col-sm-6 col-md-6 col-lg-6">
               <div class="wow fadeInLeft" data-wow-delay="0.1s">
                 <div class="text-left">
-                  <p>&copy;Copyright - Medicio Theme. All rights reserved.</p>
+                  <!-- <p>&copy;Copyright - Medicio Theme. All rights reserved.</p> -->
                 </div>
               </div>
             </div>
@@ -97,7 +91,7 @@
                       Licensing information: https://bootstrapmade.com/license/
                       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medicio
                     -->
-                    <a href="https://bootstrapmade.com/bootstrap-education-templates/"><?php echo $this->config->item('title');?></a> by BootstrapMade
+                    <a href="https://bootstrapmade.com/bootstrap-education-templates/"><?php echo $this->config->item('title');?></a> Website
                   </div>
                 </div>
               </div>
@@ -113,6 +107,8 @@
   <!-- Core JavaScript Files -->
   <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/jquery.easing.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/wow.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/jquery.scrollTo.js"></script>
@@ -122,7 +118,23 @@
   <script src="<?php echo base_url();?>assets/js/owl.carousel.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/nivo-lightbox.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/custom.js"></script>
-
+  <script type="text/javascript">
+      $(document).ready(function() {
+        $('#tabel').DataTable();
+        // $('#list').addClass('sticky');
+        // var topPosition = $('#list').offset().top - 10;
+        $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+          }
+        });
+        
+    } );
+    </script>
 </body>
 
 </html>

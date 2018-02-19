@@ -15,7 +15,6 @@
                 <div class="carousel-caption" style="padding-bottom: 100px;">
                     <img class="img-responsive img-center" style="width: 150px;margin: 0 auto;" src="<?php echo base_url();?>assets/img/smanbul.png"></img>
                     <h1><b>SMA NEGERI 1 CIBUNGBULANG</b></h1>
-                    <h2 class="">Program Diploma IPB</h2>
                     <p>"Berkarya Bersama, Berprestasi untuk Bangsa"</p>
                     <!-- <h2><a href="http://olinamasi.diploma.ipb.ac.id/Register" class="btn btn-primary">Daftarkan Tim</a></h2> -->
                 </div>
@@ -25,7 +24,6 @@
                 <div class="fill" style="background-image:url('http://localhost/database//assets/slide1.jpg');"></div>
                 <div class="carousel-caption" style="padding-bottom: 100px;">
                     <h1><b>SMA NEGERI 1 CIBUNGBULANG</b></h1>
-                    <h2 class="">Program Diploma IPB</h2>
                     <p>"Berkarya Bersama, Berprestasi untuk Bangsa"</p>
                     <!-- <h2><a href="http://olinamasi.diploma.ipb.ac.id/Register" class="btn btn-primary">Daftarkan Tim</a></h2> -->
                 </div>
@@ -49,8 +47,7 @@
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
-                <h2 class="h-bold">Doctors</h2>
-                <p>Ea melius ceteros oportere quo, pri habeo viderer facilisi ei</p>
+                <h2 class="h-bold">Informati Seputar SMAN 1 Cibungbulang</h2>
               </div>
             </div>
             <div class="divider-short"></div>
@@ -65,81 +62,41 @@
             <div id="filters-container" class="cbp-l-filters-alignLeft">
               <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">All (
                 <div class="cbp-filter-counter"></div>)</div>
-              <div data-filter=".cardiologist" class="cbp-filter-item">Cardiologist (
+              <?php 
+              foreach ($post_filter as $key) {
+                ?>
+                <div data-filter=".<?php echo $key;?>" class="cbp-filter-item"><?php echo $key;?> (
                 <div class="cbp-filter-counter"></div>)</div>
-              <div data-filter=".psychiatrist" class="cbp-filter-item">Psychiatrist (
-                <div class="cbp-filter-counter"></div>)</div>
-              <div data-filter=".neurologist" class="cbp-filter-item">Neurologist (
-                <div class="cbp-filter-counter"></div>)</div>
+                <?php
+              }
+              ?> 
             </div>
 
             <div id="grid-container" class="cbp-l-grid-team">
               <ul>
-                <li class="cbp-item psychiatrist">
-                  <a href="doctors/member1.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/1.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
+                <?php 
+                // print_r($post);die();
+                foreach ($post->result() as $key) {
+                  ?>
+                  <li class="cbp-item <?php echo $key->category;?>">
+                    <a href="doctors/member1.html" class="cbp-caption cbp-singlePage">
+                      <div class="cbp-caption-defaultWrap">
+                      <?php echo $key->konten;?>
+                      </div>
+                      <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                          <div class="cbp-l-caption-body">
+                            <div class="cbp-l-caption-text">BACA SELENGKAPNYA</div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </a>
-                  <a href="doctors/member1.html" class="cbp-singlePage cbp-l-grid-team-name">Alice Grue</a>
-                  <div class="cbp-l-grid-team-position">Psychiatrist</div>
-                </li>
-                <li class="cbp-item cardiologist">
-                  <a href="doctors/member2.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/2.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="doctors/member2.html" class="cbp-singlePage cbp-l-grid-team-name">Joseph Murphy</a>
-                  <div class="cbp-l-grid-team-position">Cardiologist</div>
-                </li>
-                <li class="cbp-item cardiologist">
-                  <a href="doctors/member3.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/3.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="doctors/member3.html" class="cbp-singlePage cbp-l-grid-team-name">Alison Davis</a>
-                  <div class="cbp-l-grid-team-position">Cardiologist</div>
-                </li>
-                <li class="cbp-item neurologist">
-                  <a href="doctors/member4.html" class="cbp-caption cbp-singlePage">
-                    <div class="cbp-caption-defaultWrap">
-                      <img src="img/team/4.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cbp-caption-activeWrap">
-                      <div class="cbp-l-caption-alignCenter">
-                        <div class="cbp-l-caption-body">
-                          <div class="cbp-l-caption-text">VIEW PROFILE</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="doctors/member4.html" class="cbp-singlePage cbp-l-grid-team-name">Adam Taylor</a>
-                  <div class="cbp-l-grid-team-position">Neurologist</div>
-                </li>
-
+                    </a>
+                    <a href="<?php echo base_url('Welcome/post/'.$key->title);?>" class="cbp-singlePage cbp-l-grid-team-name"><?php echo $key->title;?></a>
+                  </li>
+                  <?php
+                }
+                ?>
+                
               </ul>
             </div>
           </div>
@@ -149,47 +106,19 @@
     </section>
     <!-- /Section: team -->
 
-
-
-    <!-- Section: works -->
-    <section id="facilities" class="home-section paddingbot-60">
+    <!-- Section: testimonial -->
+    <section id="testimonial" class="home-section paddingbot-60 parallax" data-stellar-background-ratio="0.5">
       <div class="container marginbot-50">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
-                <h2 class="h-bold">Our facilities</h2>
-                <p>Ea melius ceteros oportere quo, pri habeo viderer facilisi ei</p>
+                <h2 class="h-bold" style="color: white;">Alumni SMA Negeri 1 Cibungbulang</h2>
               </div>
             </div>
             <div class="divider-short"></div>
           </div>
         </div>
-      </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="wow bounceInUp" data-wow-delay="0.2s">
-              <div id="owl-works" class="owl-carousel">
-                <div class="item"><a href="img/photo/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="img/photo/1.jpg" class="img-responsive" alt="img"></a></div>
-                <div class="item"><a href="img/photo/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="img/photo/2.jpg" class="img-responsive " alt="img"></a></div>
-                <div class="item"><a href="img/photo/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="img/photo/3.jpg" class="img-responsive " alt="img"></a></div>
-                <div class="item"><a href="img/photo/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="img/photo/4.jpg" class="img-responsive " alt="img"></a></div>
-                <div class="item"><a href="img/photo/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="img/photo/5.jpg" class="img-responsive " alt="img"></a></div>
-                <div class="item"><a href="img/photo/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="img/photo/6.jpg" class="img-responsive " alt="img"></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- /Section: works -->
-
-
-    <!-- Section: testimonial -->
-    <section id="testimonial" class="home-section paddingbot-60 parallax" data-stellar-background-ratio="0.5">
-
       <div class="carousel-reviews broun-block">
         <div class="container">
           <div class="row">
@@ -309,90 +238,6 @@
     </section>
     <!-- /Section: testimonial -->
 
-
-    <!-- Section: pricing -->
-    <section id="pricing" class="home-section bg-gray paddingbot-60">
-      <div class="container marginbot-50">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="wow lightSpeedIn" data-wow-delay="0.1s">
-              <div class="section-heading text-center">
-                <h2 class="h-bold">Health packages</h2>
-                <p>Take charge of your health today with our specially designed health packages</p>
-              </div>
-            </div>
-            <div class="divider-short"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-sm-4 pricing-box">
-            <div class="wow bounceInUp" data-wow-delay="0.1s">
-              <div class="pricing-content general">
-                <h2>Basic Fit 1 Package</h2>
-                <h3>$33<sup>.99</sup> <span>/ one time</span></h3>
-                <ul>
-                  <li>Anthropometry (BMI, WH Ratio) <i class="fa fa-check icon-success"></i></li>
-                  <li>Post Examination Review <i class="fa fa-check icon-success"></i></li>
-                  <li>General Screening – Basic <i class="fa fa-check icon-success"></i></li>
-                  <li><del>Health Screening Report</del> <i class="fa fa-times icon-danger"></i></li>
-                </ul>
-
-                <div class="price-bottom">
-                  <a href="#" class="btn btn-skin btn-lg">Purchase</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 pricing-box featured-price">
-            <div class="wow bounceInUp" data-wow-delay="0.3s">
-              <div class="pricing-content featured">
-                <h2>Golden Glow Package</h2>
-                <h3>$65<sup>.99</sup> <span>/ one time</span></h3>
-                <ul>
-                  <li>Anthropometry (BMI, WH Ratio) <i class="fa fa-check icon-success"></i></li>
-                  <li>Post Examination Review <i class="fa fa-check icon-success"></i></li>
-                  <li>General Screening – Basic <i class="fa fa-check icon-success"></i></li>
-                  <li>Body Composition Analysis <i class="fa fa-check icon-success"></i></li>
-                  <li>GR Assessment & Scoring <i class="fa fa-check icon-success"></i></li>
-                </ul>
-
-                <div class="price-bottom">
-                  <a href="#" class="btn btn-skin btn-lg">Purchase</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 pricing-box">
-            <div class="wow bounceInUp" data-wow-delay="0.2s">
-              <div class="pricing-content general last">
-                <h2>Basic Fit 2 Package</h2>
-                <h3>$47<sup>.99</sup> <span>/ one time</span></h3>
-                <ul>
-                  <li>Anthropometry (BMI, WH Ratio) <i class="fa fa-check icon-success"></i></li>
-                  <li>Post Examination Review <i class="fa fa-check icon-success"></i></li>
-                  <li>General Screening – Regular <i class="fa fa-check icon-success"></i></li>
-                  <li><del>Health Screening Report</del> <i class="fa fa-times icon-danger"></i></li>
-                </ul>
-
-                <div class="price-bottom">
-                  <a href="#" class="btn btn-skin btn-lg">Purchase</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- /Section: pricing -->
 
     <section id="partner" class="home-section paddingbot-60">
       <div class="container marginbot-50">

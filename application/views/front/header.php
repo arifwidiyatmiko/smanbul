@@ -21,11 +21,19 @@
   <link href="<?php echo base_url();?>assets/css/animate.css" rel="stylesheet" />
   <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 
+  <!--customs -- >
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
   <!-- boxed bg -->
   <link id="bodybg" href="<?php echo base_url();?>assets/bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- template skin -->
   <link id="t-colors" href="<?php echo base_url();?>assets/color/default.css" rel="stylesheet">
-
+  <style type="text/css">
+  .affix {
+      top: 200px;
+      z-index: 9999 !important;
+  }
+  </style>
   <!-- =======================================================
     Theme Name: Medicio
     Theme URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
@@ -36,25 +44,25 @@
   ======================================================= -->
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom #myScrollspy" >
 
 
   <div id="wrapper">
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
       <!-- Optional Kalo ada pengumuman. -->
-      <div class="top-area">
+      <!-- <div class="top-area">
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-md-6">
-              <p class="bold text-left">Monday - Saturday, 8am to 10pm </p>
+              <p class="bold text-left">Penerimaan Siswa Baru 2018</p>
             </div>
             <div class="col-sm-6 col-md-6">
-              <p class="bold text-right">Call us now +62 008 65 001</p>
+              <p class="bold text-right"><a href="https://kabbogor.siap-ppdb.com/">Klik</a></p>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="container navigation">
 
         <div class="navbar-header page-scroll">
@@ -71,12 +79,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil Sekolah <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="index.html">Profil</a></li>
-                <li><a href="index-form.html">Visi dan Misi</a></li>
-                <li><a href="index-video.html">Mars SMAN 1 Cibungbulang</a></li>
-                <li><a href="index-video.html">Kepala Sekolah</a></li>
-                <li><a href="index-video.html">Struktur Organisasi</a></li>
-                <li><a href="index-video.html">Komite Sekolah</a></li>
+                <li><a href="<?php echo base_url();?>Profil">Profil</a></li>
+                <li><a href="<?php echo base_url();?>Profil/visimisi">Visi dan Misi</a></li>
+                <li><a href="<?php echo base_url();?>Profil/struktur">Struktur Organisasi</a></li>
+                <li><a href="<?php echo base_url();?>Profil/prestasi">Prestasi</a></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -91,9 +97,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fasilitas <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="index.html">Home CTA</a></li>
-                <li><a href="index-form.html">Home Form</a></li>
-                <li><a href="index-video.html">Home video</a></li>
+                <li><a href="index.html">Perpustakaan</a></li>
+                <li><a href="index-form.html">E-Learning</a></li>
+                <li><a href="index-video.html">Forum</a></li>
               </ul>
             </li>
           </ul>
