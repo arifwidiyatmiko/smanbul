@@ -18,17 +18,22 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	protected $data = [];
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Post');
+		$this->load->model('Headline');
 		$this->load->model('Functional');
+		
+		// print_r($asd->num_rows());die();
 	}
 	public function index()
 	{
 		$data['post'] = $this->Post->findAll();
 		$data['post_filter'] = $this->Functional->get_enum_values('posting','category');
-		$this->load->view('front/header');
+		$data['headline']= $this->Headline->getHeadline();
+		$this->load->view('front/header',$data);
 		$this->load->view('front/index',$data);
 		$this->load->view('front/footer');
 	}
@@ -36,7 +41,8 @@ class Welcome extends CI_Controller {
 	{
 		$data['post'] = $this->Post->findAll();
 		// $data['post_filter'] = $this->Functional->get_enum_values('posting','category');
-		$this->load->view('front/header');
+		$data['headline']= $this->Headline->getHeadline();
+		$this->load->view('front/header',$data);
 		$this->load->view('front/index',$data);
 		$this->load->view('front/footer');
 	}

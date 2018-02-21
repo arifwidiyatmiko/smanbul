@@ -23,32 +23,40 @@ class Profil extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Pages');
 		$this->load->model('Prestasi');
+		$this->load->model('Headline');
+		$this->load->model('Functional');
 	}
 	public function index()
 	{
-		$result['post'] = $this->Pages->find('Profil')->result();
-		$this->load->view('front/header');
+		$result['post'] = $this->Functional->find('pages','on_page','profil')->result();
+		$data['headline']= $this->Headline->getHeadline();
+		$this->load->view('front/header',$data);
 		$this->load->view('front/profil',$result);
 		$this->load->view('front/footer');
 	}
 	public function visimisi()
 	{
-		$this->load->view('front/header');
-		$this->load->view('front/visimisi');
+		$result['post'] = $this->Functional->find('pages','on_page','visi')->result();
+		$data['headline']= $this->Headline->getHeadline();
+		$this->load->view('front/header',$data);
+		$this->load->view('front/visimisi',$result);
 		$this->load->view('front/footer');
 		// echo "string";
 	}
 	public function struktur()
 	{
-		$this->load->view('front/header');
-		$this->load->view('front/struktur');
+		$result['post'] = $this->Functional->find('pages','on_page','struktur')->result();
+		$data['headline']= $this->Headline->getHeadline();
+		$this->load->view('front/header',$data);
+		$this->load->view('front/struktur',$result);
 		$this->load->view('front/footer');
 		// echo "string";
 	}
 	public function prestasi()
 	{
 		$result['prestasi'] = $this->Prestasi->findAll()->result();
-		$this->load->view('front/header');
+		$data['headline']= $this->Headline->getHeadline();
+		$this->load->view('front/header',$data);	
 		$this->load->view('front/prestasi',$result);
 		$this->load->view('front/footer');
 		// echo "string";

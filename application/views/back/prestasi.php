@@ -65,10 +65,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Tambah Halaman</h4>
+          <h4 class="modal-title">Tambah Prestasi</h4>
         </div>
         <div class="modal-body">
-          <form action="<?php echo base_url('Editor/headlines/insert');?>" method="POST">
+          <form action="<?php echo base_url('Editor/prestasi/insert');?>" method="POST">
               <div class="form-group">
                   <label>Nama</label>
                   <input type="text" name="nama" class="form-control" required="true">
@@ -80,6 +80,20 @@
               <div class="form-group">
                   <label>Bidang</label>
                   <input type="text" name="bidang" class="form-control" placeholder="Bidang" required="true">
+              </div>
+              <div class="form-group">
+                  <label>Tingkat</label>
+                  <select name="tingkat" class="form-control">
+                    <?php 
+                    foreach ($dropdown as $key) {
+                      ?><option value="<?php echo $key;?>"><?php echo $key;?></option><?php
+                    }
+                    ?>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label>Tahun</label>
+                  <input type="number" name="tahun" class="form-control" placeholder="Tahun" required="true">
               </div>
               <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-info">

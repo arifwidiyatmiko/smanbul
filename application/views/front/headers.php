@@ -50,25 +50,7 @@
   <div id="wrapper">
 
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <!-- Optional Kalo ada pengumuman. -->
-      <?php 
-      if ($headline->num_rows() > 0) {
-        ?>
-        <div class="top-area">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-md-6">
-                <p class="bold text-left">Penerimaan Siswa Baru 2018</p>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <p class="bold text-right"><a href="https://kabbogor.siap-ppdb.com/">Klik</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <?php
-      }
-      ?>
+      
       <div class="container navigation">
 
         <div class="navbar-header page-scroll">
@@ -103,9 +85,9 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fasilitas <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="https://Perpustakaan.smanbul.sch.id" target="new">Perpustakaan</a></li>
-                <li><a href="https://elearning.jaban.in">E-Learning</a></li>
-                <li><a href="https://forum.smanbul.sch.id">Forum</a></li>
+                <li><a href="Perpustakaan.smanbul.sch.id">Perpustakaan</a></li>
+                <li><a href="elearning.jaban.in">E-Learning</a></li>
+                <li><a href="forum.smanbul.sch.id">Forum</a></li>
               </ul>
             </li>
           </ul>

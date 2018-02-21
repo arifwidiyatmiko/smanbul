@@ -7,7 +7,7 @@
               <div class="widget">
                 <h5>Sekilas Tentang Sekolah</h5>
                 <p>
-                  Lorem ipsum dolor sit amet, ne nam purto nihil impetus, an facilisi accommodare sea
+                  SMAN 1 Cibungbulang adalah sekolah yang berdiri pada tanggal 5 Maret 2002, dan terus meningkatkan Mutu dan Kualitas Pendidikan.
                 </p>
               </div>
             </div>
@@ -18,7 +18,7 @@
                   <li><a href="http://dapo.dikdasmen.kemdikbud.go.id/sekolah/0BA3CA2C92FBE88A1CCB">DAPODIK</a></li>
                   <li><a href="https://kabbogor.siap-ppdb.com/">PPDB Kab. Bogor</a></li>
                   <li><a href="http://disdik.bogorkab.go.id/">Dinas Pendidikan Kab. Bogor</a></li>
-                  <li><a href="#">Terms & conditions</a></li>
+                 
                 </ul>
               </div>
             </div>
@@ -26,9 +26,9 @@
           <div class="col-sm-6 col-md-4">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="widget">
-                <h5>Medicio center</h5>
+                <h5>Kontak Kami</h5>
                 <p>
-                  Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc sit amet.
+                  Kami akan senang apabila dapat melayani anda.
                 </p>
                 <ul>
                   <li>
@@ -63,8 +63,6 @@
                   <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
                   <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                   <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
-                  <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
                 </ul>
               </div>
             </div>

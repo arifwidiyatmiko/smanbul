@@ -53,4 +53,9 @@ class Headline extends CI_Model {
 	{
 		$this->db->update('headline',array('status'=>0));
 	}
+	public function getHeadline()
+	{
+		$this->db->where('status', 1);
+		return $this->db->get('headline');
+	}
 }

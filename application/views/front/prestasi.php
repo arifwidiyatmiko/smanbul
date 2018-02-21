@@ -11,7 +11,6 @@
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
                 <h2 class="h-bold">Prestasi</h2>
-                <p>Ea melius ceteros oportere quo, pri habeo viderer facilisi ei</p>
 
               </div>
             </div>
@@ -36,7 +35,6 @@
                   foreach ($prestasi as $key ) {
                     ?>
                     <tr>
-                      <td><?php echo $i;?></td>
                                         <td><?php echo $key->nama;?></td>
                                         <td><?php echo $key->prestasi;?></td>
                                         <td><?php echo $key->bidang;?></td>

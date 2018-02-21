@@ -28,9 +28,9 @@ class Functional extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->update($table,$data);
 	}
-	public function find($table,$query='')
+	public function find($table,$column,$query='')
 	{
-		$this->db->like($table, $query);
+		$this->db->like($column, $query);
 		$res = $this->db->get($table);
 		return $res;
 	}
@@ -51,4 +51,9 @@ class Functional extends CI_Model {
 		    $enum = explode("','", $matches[1]);
 		    return $enum;
 		}
+	public function count($table='')
+	{
+		$this->db->select('COUNT(id) as total');
+		return $this->db->get($table)->result_array();
+	}
 }

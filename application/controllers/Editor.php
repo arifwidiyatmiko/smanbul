@@ -26,11 +26,16 @@ class Editor extends CI_Controller {
 		$this->load->model('Functional');
 		$this->load->model('Headline');
 		$this->load->model('Prestasi');
+
 	}
 	public function index()
 	{
+		$result['pages'] = $this->Functional->count('pages')[0]['total'];
+		$result['headline'] = $this->Functional->count('headline')[0]['total'];
+		$result['post'] = $this->Functional->count('posting')[0]['total'];
+		$result['prestasi'] = $this->Functional->count('prestasi')[0]['total'];
 		$this->load->view('back/header');
-		$this->load->view('back/index');
+		$this->load->view('back/index',$result);
 		$this->load->view('back/footer');
 	}
 	public function edit($value='')
@@ -94,6 +99,29 @@ class Editor extends CI_Controller {
 				break;
 			default:
 				redirect('Editor','refresh');
+				break;
+		}
+	}
+	public function footer($value='')
+	{
+		switch ($value) {
+			case 'edit':
+				$data = array(
+					'alamat' => $this->input->post('alamat'),
+					'telpon' => $this->input->post('telepon'),
+					'email' => $this->input->post('email'),
+					'info' => $this->input->post('info'),
+					'facebook' => $this->input->post('facebook'),
+					'twitter' => $this->input->post('twitter')
+					 );
+				$this->Functional->insert('foooter',$data);
+				redirect('Editor/footer','refresh');
+				break;
+			default:
+				$result['data'] = $this->Functional->findAll('footer')->result_array();
+				$this->load->view('back/header');
+				$this->load->view('back/setting',$result);
+				$this->load->view('back/footer');
 				break;
 		}
 	}
@@ -177,15 +205,15 @@ class Editor extends CI_Controller {
 		switch ($value) {
 			case '':
 				$result['pages'] = $this->Prestasi->findAll()->result();
-				// $result['dropdown'] = $this->Functional->get_enum_values('pages','type');
+				$result['dropdown'] = $this->Functional->get_enum_values('prestasi','tingkat');
 				$this->load->view('back/header');
 				$this->load->view('back/prestasi',$result);
 				$this->load->view('back/footer');
 				break;
 			case 'insert':
-				$data = array('text' => $this->input->post('text'),'link'=>$this->input->post('link') );
-				$this->Headline->insert($data);
-				redirect('Editor/headlines','refresh');
+				$data = array('nama' => $this->input->post('nama'),'prestasi'=>$this->input->post('prestasi'),'bidang'=>$this->input->post('bidang'),'tingkat'=>$this->input->post('tingkat'),'tahun'=>$this->input->post('tahun') );
+				$this->Prestasi->insert($data);
+				redirect('Editor/prestasi','refresh');
 				break;
 			default:
 				# code...

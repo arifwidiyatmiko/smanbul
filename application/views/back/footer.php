@@ -3,7 +3,8 @@
 
     <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/admin/vendor/jquery/jquery.min.js"></script>
-
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url();?>assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
 
@@ -55,6 +56,13 @@
           }
    });
 </script>
+<script type="text/javascript">
+      $(document).ready(function() {
+        $('#tabel').DataTable();
+        
+        
+    } );
+    </script>
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">

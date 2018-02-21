@@ -15,8 +15,8 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div class="huge"><?php echo $pages;?></div>
+                                    <div>Total Pages</div>
                                 </div>
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div class="huge"><?php echo $post;?></div>
+                                    <div>Total Posting</div>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div class="huge"><?php echo $headline;?></div>
+                                    <div>Total Headline</div>
                                 </div>
                             </div>
                         </div>
@@ -81,8 +81,8 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    <div class="huge"><?php echo $prestasi;?></div>
+                                    <div>Total Prestasi</div>
                                 </div>
                             </div>
                         </div>
