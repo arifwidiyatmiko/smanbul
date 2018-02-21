@@ -114,7 +114,7 @@ class Editor extends CI_Controller {
 					'facebook' => $this->input->post('facebook'),
 					'twitter' => $this->input->post('twitter')
 					 );
-				$this->Functional->insert('foooter',$data);
+				$this->Functional->updateAll('footer',$data);
 				redirect('Editor/footer','refresh');
 				break;
 			default:

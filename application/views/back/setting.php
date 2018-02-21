@@ -27,16 +27,16 @@
                                     <input type="text" name="info" class="form-control" value="<?php echo $data[0]['info']; ?>">
                                 </div>
                                  <div class="form-group">
-                                    <label>Alamat</label>
+                                    <label>Email</label>
                                     <input type="email" name="email" class="form-control" value="<?php echo $data[0]['email']; ?>">
                                 </div>
                                  <div class="form-group">
                                     <label>Facebook</label>
-                                    <input type="url" name="alamat" class="form-control" value="<?php echo $data[0]['facebook']; ?>">
+                                    <input type="url" name="facebook" class="form-control" value="<?php echo $data[0]['facebook']; ?>">
                                 </div>
                                  <div class="form-group">
                                     <label>Twitter</label>
-                                    <input type="url" name="alamat" class="form-control" value="<?php echo $data[0]['twitter']; ?>">
+                                    <input type="url" name="twitter" class="form-control" value="<?php echo $data[0]['twitter']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Save" class="btn btn-primary">

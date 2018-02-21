@@ -28,6 +28,10 @@ class Functional extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->update($table,$data);
 	}
+	public function updateAll($table,$data)
+	{
+		$this->db->update($table,$data);
+	}
 	public function find($table,$column,$query='')
 	{
 		$this->db->like($column, $query);
