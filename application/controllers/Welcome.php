@@ -37,6 +37,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('front/index',$data);
 		$this->load->view('front/footer');
 	}
+	public function sign()
+	{
+		$this->load->view('back/login');
+	}
 	public function post($value='')
 	{
 		$data['post'] = $this->Post->findAll();

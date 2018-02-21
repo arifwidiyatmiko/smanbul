@@ -26,7 +26,27 @@ class Editor extends CI_Controller {
 		$this->load->model('Functional');
 		$this->load->model('Headline');
 		$this->load->model('Prestasi');
+		if (!$this->session->userdata('auth')) {
+			redirect('Welcome/sign');
+		}
 
+	}
+	
+	public function auth()
+	{
+		$data = array('username' => $this->input->post('username'),'password' => md5($this->input->post('password')));
+		$res = $this->Functional->login($data);
+		if ($res->num_rows() == 0) {
+			$this->session->set_flashdata('err','Invalid Login username or Password');
+			redirect('Welcome/sign');
+		}else{
+			redirect('Editor','refresh');
+		}
+	}
+	public function out()
+	{
+		$this->session->sess_destroy();
+		redirect('Editor/sign','refresh');
 	}
 	public function index()
 	{
