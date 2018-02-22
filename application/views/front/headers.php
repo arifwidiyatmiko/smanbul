@@ -57,7 +57,7 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                <i class="fa fa-bars"></i>
           </button>
-          <a class="navbar-brand" href="index.html" style="margin-top: 15px;">SMAN 1 CIBUNGBULANG</a>
+          <a class="navbar-brand" href="<?php echo base_url();?>" style="margin-top: 15px;">SMAN 1 CIBUNGBULANG</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

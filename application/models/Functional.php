@@ -60,4 +60,9 @@ class Functional extends CI_Model {
 		$this->db->select('COUNT(id) as total');
 		return $this->db->get($table)->result_array();
 	}
+	public function login($value='')
+	{
+		$this->db->where($value);
+		return $this->db->get('editor');
+	}
 }

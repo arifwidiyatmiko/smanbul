@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><?php echo $this->config->item('title');?> Dashboard</a>
+                <a class="navbar-brand" href="<?php echo base_url('Editor');?>"><?php echo $this->config->item('title');?> Dashboard</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -94,6 +94,12 @@
                         </li>
                         <li>
                             <a href="<?php echo base_url('Editor/prestasi');?>"><i class="fa  fa fa-flag-checkered fa-fw"></i> Prestasi</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('Editor/Ekstrakulikuler');?>"><i class="fa  fa-rocket fa-fw"></i> Ekstrakulikuler</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('Editor/Sarana');?>"><i class="fa fa-asl-interpreting fa-fw"></i> Sarana</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url('Editor/headlines');?>"><i class="fa fa fa-newspaper-o fa-fw"></i> Headlines</a>

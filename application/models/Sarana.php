@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends CI_Model {
+class Sarana extends CI_Model {
 
 	/**
 	 * Index Page for this controller.
@@ -10,7 +10,7 @@ class Post extends CI_Model {
 	 * 		http://example.com/index.php/welcome
 	 *	- or -
 	 * 		http://example.com/index.php/welcome/index
-	 *	- or -'posting'
+	 *	- or -
 	 * Since this controller is set as the default controller in
 	 * config/routes.php, it's displayed at http://example.com/
 	 *
@@ -21,38 +21,32 @@ class Post extends CI_Model {
 
 	public function insert($value)
 	{
-		$this->db->insert('posting',$value);
+		$this->db->insert('sarana',$value);
 	}
 	public function update($id,$data)
 	{
 		$this->db->where('id', $id);
-		$this->db->update('posting',$data);
+		$this->db->update('sarana',$data);
 	}
 	public function find($query='')
 	{
-		$this->db->like('konten', $query);
-		$res = $this->db->get('posting');
+		$this->db->like('title', $query);
+		$res = $this->db->get('sarana');
 		return $res;
 	}
 	public function findId($id)
 	{
 		$this->db->where('id', $id);
-		$res = $this->db->get('posting');
-		return $res;
-	}
-	public function findLike($value='')
-	{
-		$this->db->where('title', $value);
-		$res = $this->db->get('posting');
+		$res = $this->db->get('sarana');
 		return $res;
 	}
 	public function findAll()
 	{
-		return $this->db->get('posting');
+		return $this->db->get('sarana');
 	}
 	public function delete($value='')
 	{
 		$this->db->where('id',$value);
-		$this->db->delete('posting');
+		$this->db->delete('sarana');
 	}
 }

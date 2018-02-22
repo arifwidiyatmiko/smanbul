@@ -7,7 +7,7 @@
               <div class="widget">
                 <h5>Sekilas Tentang Sekolah</h5>
                 <p>
-                  SMAN 1 Cibungbulang adalah sekolah yang berdiri pada tanggal 5 Maret 2002, dan terus meningkatkan Mutu dan Kualitas Pendidikan.
+                  <?php echo $footer[0]['info'];?>
                 </p>
               </div>
             </div>
@@ -35,13 +35,13 @@
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
-								</span> +62251 8645033
+								</span> <?php echo $footer[0]['telpon'];?>
                   </li>
                   <li>
                     <span class="fa-stack fa-lg">
 									<i class="fa fa-circle fa-stack-2x"></i>
 									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-								</span> sman1cibungbulang@outlook.com
+								</span><?php echo $footer[0]['email'];?>
                   </li>
 
                 </ul>
@@ -52,7 +52,7 @@
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="widget">
                 <h5>Lokasi</h5>
-                <p>Jl. Kapten Dasuki Bakri No.18, Cibatok 1, Cibungbulang, Bogor, Jawa Barat 16630</p>
+                <p><?php echo $footer[0]['alamat'];?></p>
 
               </div>
             </div>
@@ -60,8 +60,8 @@
               <div class="widget">
                 <h5>Follow us</h5>
                 <ul class="company-social">
-                  <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="social-facebook"><a href="<?php echo $footer[0]['facebook'];?>"><i class="fa fa-facebook"></i></a></li>
+                  <li class="social-twitter"><a href<?php echo $footer[0]['twitter'];?>"><i class="fa fa-twitter"></i></a></li>
                   <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
                 </ul>
               </div>

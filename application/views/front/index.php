@@ -79,7 +79,7 @@
                 foreach ($post->result() as $key) {
                   ?>
                   <li class="cbp-item <?php echo $key->category;?>">
-                    <a href="doctors/member1.html" class="cbp-caption cbp-singlePage">
+                    <a href="<?php echo base_url('Welcome/post/'.$key->title);?>" class="cbp-caption">
                       <div class="cbp-caption-defaultWrap">
                       <?php echo $key->konten;?>
                       </div>
@@ -91,7 +91,7 @@
                         </div>
                       </div>
                     </a>
-                    <a href="<?php echo base_url('Welcome/post/'.$key->title);?>" class="cbp-singlePage cbp-l-grid-team-name"><?php echo $key->title;?></a>
+                    <a href="<?php echo base_url('Welcome/post/'.$key->title);?>" class=" cbp-l-grid-team-name"><?php echo $key->title;?></a>
                   </li>
                   <?php
                 }
@@ -136,8 +136,8 @@
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow lightSpeedIn" data-wow-delay="0.1s">
               <div class="section-heading text-center">
-                <h2 class="h-bold">Our partner</h2>
-                <p>Take charge of your health today with our specially designed health packages</p>
+                <h2 class="h-bold">Kerjasama</h2>
+                <p>Untuk meningkatkan mutu pendidikan, SMAN 1 Cibungbulang bekerjasama dalam bentuk pengawasan dan Pengembangan</p>
               </div>
             </div>
             <div class="divider-short"></div>
@@ -149,22 +149,22 @@
         <div class="row">
           <div class="col-sm-6 col-md-3">
             <div class="partner">
-              <a href="#"><img src="<?php echo base_url();?>assets/img/dummy/partner-1.jpg" alt="" /></a>
+              <a href="#"><img style="width: 150px;" src="<?php echo base_url();?>assets/img/33ddc3bc2640689.png" alt="" /></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3">
             <div class="partner">
-              <a href="#"><img src="<?php echo base_url();?>assets/img/dummy/partner-2.jpg" alt="" /></a>
+              <a href="#"><img  style="width: 100px;" src="<?php echo base_url();?>assets/img/LOGO KABUPATEN BOGOR.png" alt="" /></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3">
             <div class="partner">
-              <a href="#"><img src="<?php echo base_url();?>assets/img/dummy/partner-3.jpg" alt="" /></a>
+              <a href="#"><img style="width: 220px;" src="<?php echo base_url();?>assets/img/1430614690721.png" alt="" /></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3">
             <div class="partner">
-              <a href="#"><img src="<?php echo base_url();?>assets/img/dummy/partner-4.jpg" alt="" /></a>
+              <a href="#"><img style="width: 120px;" src="<?php echo base_url();?>assets/img/ipb.png" alt="" /></a>
             </div>
           </div>
         </div>

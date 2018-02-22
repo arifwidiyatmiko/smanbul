@@ -26,27 +26,18 @@ class Editor extends CI_Controller {
 		$this->load->model('Functional');
 		$this->load->model('Headline');
 		$this->load->model('Prestasi');
+		$this->load->model('Ekstrakulikuler');
+		$this->load->model('Sarana');
 		if (!$this->session->userdata('auth')) {
 			redirect('Welcome/sign');
 		}
 
 	}
 	
-	public function auth()
-	{
-		$data = array('username' => $this->input->post('username'),'password' => md5($this->input->post('password')));
-		$res = $this->Functional->login($data);
-		if ($res->num_rows() == 0) {
-			$this->session->set_flashdata('err','Invalid Login username or Password');
-			redirect('Welcome/sign');
-		}else{
-			redirect('Editor','refresh');
-		}
-	}
 	public function out()
 	{
 		$this->session->sess_destroy();
-		redirect('Editor/sign','refresh');
+		redirect('Welcome/sign','refresh');
 	}
 	public function index()
 	{
@@ -72,6 +63,101 @@ class Editor extends CI_Controller {
 		$this->load->view('back/header');
 		$this->load->view('back/edit_post',$result);
 		$this->load->view('back/footer');
+	}
+	public function Ekstrakulikuler($value='',$id='')
+	{
+		switch ($value) {
+			case 'insert':
+				$data = array('nama' => $this->input->post('nama'),'teks' => $this->input->post('teks'),'url' => $this->input->post('url') );
+				// print_r($data);die();
+				$this->Ekstrakulikuler->insert($data);
+				redirect('Editor/Ekstrakulikuler','refresh');
+				break;
+			case 'edit':
+				$result['pages'] = $this->Ekstrakulikuler->findId($id)->result();
+				$this->load->view('back/header');
+				$this->load->view('back/edit_ekstrakulikuler',$result);
+				$this->load->view('back/footer');
+				break;
+			case 'update':
+				$data = array('nama' => $this->input->post('nama'),'teks' => $this->input->post('teks'),'url' => $this->input->post('url') );
+				// print_r($data);die();
+				$this->Ekstrakulikuler->update($id,$data);
+				redirect('Editor/Ekstrakulikuler','refresh');
+				break;
+			case 'delete':
+				// echo $id;die();
+				$this->Ekstrakulikuler->delete($id);
+				redirect('Editor/Ekstrakulikuler','refresh');
+				break;
+			default:
+				$result['ekstrakulikuler'] = $this->Ekstrakulikuler->findAll();
+				$this->load->view('back/header');
+				$this->load->view('back/ekstrakulikuler',$result);
+				$this->load->view('back/footer');
+				break;
+		}
+	}
+	public function Sarana($value='',$id='')
+	{
+		switch ($value) {
+			case 'insert':
+				$config['upload_path'] = 'assets/upload/';
+		        $config['allowed_types'] = 'jpg|png|jpeg';
+		        $config['max_size'] = 0;
+		        $this->load->library('upload', $config);
+		        if ( ! $this->upload->do_upload('image')) {
+		        	$this->session->set_flashdata('err',$this->upload->display_errors());
+		          	redirect('Editor/sarana');
+		        } else {
+		            $file = $this->upload->data();
+		            $image = $file['file_name'];
+		        }
+				$data = array('title' => $this->input->post('title'),'konten' => $this->input->post('konten'),'image' => $image );
+				// print_r($data);die();
+				$this->Sarana->insert($data);
+				redirect('Editor/Sarana','refresh');
+				break;
+			case 'edit':
+				$result['pages'] = $this->Sarana->findId($id)->result();
+				// print_r($result['pages']);die();
+				$this->load->view('back/header');
+				$this->load->view('back/edit_sarana',$result);
+				$this->load->view('back/footer');
+				break;
+			case 'update':
+				// print_r($_FILES['image']);die();
+				if ($_FILES['image']['size'] != 0) {
+					$config['upload_path'] = 'assets/upload/';
+			        $config['allowed_types'] = 'jpg|png|jpeg';
+			        $config['max_size'] = 0;
+			        $this->load->library('upload', $config);
+			        if ( ! $this->upload->do_upload('image')) {
+			        	$this->session->set_flashdata('err',$this->upload->display_errors());
+			          	redirect('Editor/sarana/edit/'.$id);
+			        } else {
+			            $file = $this->upload->data();
+			            $image = $file['file_name'];
+			        }
+				}
+				$image = $this->input->post('file');
+				$data = array('title' => $this->input->post('title'),'konten' => $this->input->post('konten'),'image' => $image );
+				// print_r($data);die();
+				$this->Sarana->update($id,$data);
+				redirect('Editor/Sarana','refresh');
+				break;
+			case 'delete':
+				// echo $id;die();
+				$this->Sarana->delete($id);
+				redirect('Editor/Sarana','refresh');
+				break;
+			default:
+				$result['sarana'] = $this->Sarana->findAll();
+				$this->load->view('back/header');
+				$this->load->view('back/sarana',$result);
+				$this->load->view('back/footer');
+				break;
+		}
 	}
 	public function list($value='')
 	{	
@@ -233,6 +319,10 @@ class Editor extends CI_Controller {
 			case 'insert':
 				$data = array('nama' => $this->input->post('nama'),'prestasi'=>$this->input->post('prestasi'),'bidang'=>$this->input->post('bidang'),'tingkat'=>$this->input->post('tingkat'),'tahun'=>$this->input->post('tahun') );
 				$this->Prestasi->insert($data);
+				redirect('Editor/prestasi','refresh');
+				break;
+			case 'delete':
+				$this->Prestasi->delete($id);
 				redirect('Editor/prestasi','refresh');
 				break;
 			default:
