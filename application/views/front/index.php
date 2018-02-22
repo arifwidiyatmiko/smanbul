@@ -48,6 +48,7 @@
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
                 <h2 class="h-bold">Informati Seputar SMAN 1 Cibungbulang</h2>
+                <p>Berita, Pengumuman atau Informasi seputar SMAN 1 Cibungbulang. <a href="<?php echo base_url();?>Welcome/posting">View All</a></p>
               </div>
             </div>
             <div class="divider-short"></div>

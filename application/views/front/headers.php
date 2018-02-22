@@ -81,7 +81,7 @@
                 <li><a href="<?php echo base_url();?>Akademik/Sarana">Sarana & Prasarana</a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url();?>Ekstrakulikuler">Ekstrakulikuler</a></li>
+            <li><a href="<?php echo base_url();?>Welcome/Ekstrakulikuler">Ekstrakulikuler</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fasilitas <b class="caret"></b></a>
               <ul class="dropdown-menu">

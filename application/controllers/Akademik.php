@@ -25,7 +25,7 @@ class Akademik extends CI_Controller {
 		$this->load->model('Post');
 		$this->load->model('Headline');
 		$this->load->model('Functional');
-		
+		$this->load->model('Sarana');
 		// print_r($asd->num_rows());die();
 	}
 	public function index()
@@ -40,12 +40,11 @@ class Akademik extends CI_Controller {
 	}
 	public function sarana($value='')
 	{
-		$data['post'] = $this->Post->findAll();
-		$data['post_filter'] = $this->Functional->get_enum_values('posting','category');
+		$data['post'] = $this->Sarana->findAll()->result();
 		$data['headline']= $this->Headline->getHeadline();
 		$data['footer'] = $this->Functional->findAll('footer')->result_array();
 		$this->load->view('front/header',$data);
-		// $this->load->view('front/index',$data);
+		$this->load->view('front/sarana',$data);
 		$this->load->view('front/footer',$data);
 	}
 	

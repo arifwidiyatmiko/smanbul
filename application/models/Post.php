@@ -46,8 +46,11 @@ class Post extends CI_Model {
 		$res = $this->db->get('posting');
 		return $res;
 	}
-	public function findAll()
+	public function findAll($val='')
 	{
+		if ($val != '') {
+			$this->db->limit(4);
+		}
 		return $this->db->get('posting');
 	}
 	public function delete($value='')
@@ -55,4 +58,26 @@ class Post extends CI_Model {
 		$this->db->where('id',$value);
 		$this->db->delete('posting');
 	}
+	public function get_current_page_records($limit, $start) 
+    {
+        $this->db->limit($limit, $start);
+        $query = $this->db->get("posting");
+ 
+        if ($query->num_rows() > 0) 
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+             
+            return $data;
+        }
+ 
+        return false;
+    }
+     
+    public function get_total() 
+    {
+        return $this->db->count_all("posting");
+     }
 }

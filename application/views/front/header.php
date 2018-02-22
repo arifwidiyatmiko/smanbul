@@ -58,10 +58,10 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-md-6">
-                <p class="bold text-left">Penerimaan Siswa Baru 2018</p>
+                <p class="bold text-left"><?php echo $headline->result_array()[0]['text'];?></p>
               </div>
               <div class="col-sm-6 col-md-6">
-                <p class="bold text-right"><a href="https://kabbogor.siap-ppdb.com/">Klik</a></p>
+                <p class="bold text-right"><a href="<?php echo $headline->result_array()[0]['link'];?>">Klik</a></p>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@
                 <li><a href="<?php echo base_url();?>Akademik/Sarana">Sarana & Prasarana</a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url();?>Ekstrakulikuler">Ekstrakulikuler</a></li>
+            <li><a href="<?php echo base_url();?>Welcome/Ekstrakulikuler">Ekstrakulikuler</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fasilitas <b class="caret"></b></a>
               <ul class="dropdown-menu">
