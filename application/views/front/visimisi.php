@@ -1,17 +1,13 @@
-
-
-    
-
+ 
     <!-- Section: team -->
-    <section class="home-section bg-gray paddingbot-60" style="margin-top: 80px;">
+    <section class="home-section bg-gray paddingbot-60 wow fadeInDown" style="margin-top: 80px;" >
       <div class="container marginbot-50">
         <div class="row">
           <div></div>
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
-                <h2 class="h-bold">Visi dan Misi</h2>
-                <p>Ea melius ceteros oportere quo, pri habeo viderer facilisi ei</p>
+                <h2 class="h-bold">Visi & Misi</h2>
 
               </div>
             </div>
@@ -20,7 +16,7 @@
            
           </div>
         </div>
-        <div id="list" class="col-sm-3" >
+         <div id="list" class="col-sm-3" >
               <nav id="myScrollspy">
                 <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="500">
                   <?php $i=0;

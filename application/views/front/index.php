@@ -11,7 +11,7 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://localhost/database//assets/slide1.jpg');"></div>
+                <div class="fill" style="background-image:url('<?php echo base_url();?>assets/img/bg.jpg');"></div>
                 <div class="carousel-caption" style="padding-bottom: 100px;">
                     <img class="img-responsive img-center" style="width: 150px;margin: 0 auto;" src="<?php echo base_url();?>assets/img/smanbul.png"></img>
                     <h1><b>SMA NEGERI 1 CIBUNGBULANG</b></h1>
@@ -21,8 +21,9 @@
             </div>
             <div class="item">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://localhost/database//assets/slide1.jpg');"></div>
+                <div class="fill" style="background-image:url('<?php echo base_url();?>assets/img/bg.jpg');"></div>
                 <div class="carousel-caption" style="padding-bottom: 100px;">
+                    <img class="img-responsive img-center" style="width: 150px;margin: 0 auto;" src="<?php echo base_url();?>assets/img/smanbul.png"></img>
                     <h1><b>SMA NEGERI 1 CIBUNGBULANG</b></h1>
                     <p>"Berkarya Bersama, Berprestasi untuk Bangsa"</p>
                     <!-- <h2><a href="http://olinamasi.diploma.ipb.ac.id/Register" class="btn btn-primary">Daftarkan Tim</a></h2> -->
@@ -48,7 +49,7 @@
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
                 <h2 class="h-bold">Informati Seputar SMAN 1 Cibungbulang</h2>
-                <p>Berita, Pengumuman atau Informasi seputar SMAN 1 Cibungbulang. <a href="<?php echo base_url();?>Welcome/posting">View All</a></p>
+                <p>Berita, Pengumuman atau Informasi seputar SMAN 1 Cibungbulang.</p>
               </div>
             </div>
             <div class="divider-short"></div>
@@ -100,6 +101,7 @@
                 
               </ul>
             </div>
+            <span class="pull right"> <a href="<?php echo base_url();?>Welcome/posting" class="btn btn-primary">View All</a></span>
           </div>
         </div>
       </div>
@@ -148,26 +150,33 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-1"></div>
+          <div class="col-sm-6 col-md-2">
             <div class="partner">
-              <a href="#"><img style="width: 150px;" src="<?php echo base_url();?>assets/img/33ddc3bc2640689.png" alt="" /></a>
+              <a href="http://kemdikbud.go.id" target="new"><img style="width: 150px;" src="<?php echo base_url();?>assets/img/33ddc3bc2640689.png" alt="" /></a>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-2">
             <div class="partner">
-              <a href="#"><img  style="width: 100px;" src="<?php echo base_url();?>assets/img/LOGO KABUPATEN BOGOR.png" alt="" /></a>
+              <a href="http://www.jabarprov.go.id/" target="new"><img  style="width: 100px;" src="<?php echo base_url();?>assets/img/jabar.png" alt="" /></a>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-2">
             <div class="partner">
-              <a href="#"><img style="width: 220px;" src="<?php echo base_url();?>assets/img/1430614690721.png" alt="" /></a>
+              <a href="http://www.bogorkab.go.id/" target="new"><img  style="width: 100px;" src="<?php echo base_url();?>assets/img/LOGO KABUPATEN BOGOR.png" alt="" /></a>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-2">
             <div class="partner">
-              <a href="#"><img style="width: 120px;" src="<?php echo base_url();?>assets/img/ipb.png" alt="" /></a>
+              <a href="http://www.pnri.go.id/" target="new"><img style="width: 200px;" src="<?php echo base_url();?>assets/img/1430614690721.png" alt="" /></a>
             </div>
           </div>
+          <div class="col-sm-6 col-md-2">
+            <div class="partner">
+              <a href="http://ipb.ac.id/" target="new"><img style="width: 120px;" src="<?php echo base_url();?>assets/img/ipb.png" alt="" /></a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-1"></div>
         </div>
       </div>
     </section>

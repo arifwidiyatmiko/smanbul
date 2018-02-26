@@ -8,7 +8,6 @@
   <meta name="author" content="arifwidiyatmiko">
 
   <title><?php echo $this->config->item('title');?></title>
-
   <!-- css -->
   <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -28,11 +27,13 @@
   <link id="bodybg" href="<?php echo base_url();?>assets/bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- template skin -->
   <link id="t-colors" href="<?php echo base_url();?>assets/color/default.css" rel="stylesheet">
+
+  <link rel="icon" href="<?php echo base_url();?>assets/img/smanbul.png"/>
   <style type="text/css">
-  .affix {
+  /*.affix {
       top: 200px;
       z-index: 9999 !important;
-  }
+  }*/
   </style>
   <!-- =======================================================
     Theme Name: Medicio
