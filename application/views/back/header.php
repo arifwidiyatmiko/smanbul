@@ -26,6 +26,11 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url();?>assets/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+    <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/css/colpick.css" type="text/css"/> -->
+    <script src="<?php echo base_url();?>assets/admin/vendor/jquery/jquery.min.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -103,6 +108,12 @@
                         </li>
                         <li>
                             <a href="<?php echo base_url('Editor/headlines');?>"><i class="fa fa fa-newspaper-o fa-fw"></i> Headlines</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('Editor/slider');?>"><i class="fa fa fa-television fa-fw"></i> Slider</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('Editor/paralax');?>"><i class="fa fa fa-ticket fa-fw"></i> Paralax</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url('Editor/footer');?>"><i class="fa fa fa-cogs fa-fw"></i> Footer</a>

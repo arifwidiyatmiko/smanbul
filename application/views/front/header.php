@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="SMA Negeri 1 Cibungbulang">
   <meta name="author" content="arifwidiyatmiko">
-
+  <meta name="google-site-verification" content="JeFMaC698V3U82rjaqv_GD17Jmhg0IdXxsW2zBl12oU" />
   <title><?php echo $this->config->item('title');?></title>
 
   <!-- css -->
@@ -82,7 +82,34 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url();?>">Beranda</a></li>
-            <li class="dropdown">
+            <?php 
+            foreach ($menu as $key) {
+              $childs = $this->Pages->on_menu($key);
+              // print_r($childs->result());die();
+              if ($childs->num_rows() != 0) {
+                ?>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo strtoupper($key);?><b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                <?php
+                foreach ($childs->result() as $x ) {
+                ?>
+                  
+                        <li><a href="<?php if($x->type == 'url'){echo $x->konten;}else{echo base_url();?>Welcome/view/<?php echo $x->page;}?>"><?php echo $x->page;?></a></li>
+                      
+                <?php
+                }
+                ?>
+                  </ul>
+                    </li>
+                <?php
+              }
+              
+            }
+            ?>
+            <li ><a href="<?php echo base_url();?>Profil/prestasi">Prestasi</a></li>
+            <li ><a href="<?php echo base_url();?>Welcome/Ekstrakulikuler">Ekstrakulikulr</a></li>
+            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil Sekolah <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="<?php echo base_url();?>Profil">Profil</a></li>
@@ -107,7 +134,7 @@
                 <li><a href="https://elearning.jaban.in">E-Learning</a></li>
                 <li><a href="https://forum.smanbul.sch.id">Forum</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- /.navbar-collapse -->

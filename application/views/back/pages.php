@@ -11,7 +11,7 @@
                         <div class="panel-heading">
                             <div class="row container-fluid">
                                 <i class="fa fa-clock-o fa-fw"></i> Daftar Halaman
-                                <button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                                <button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#myModal">Tambah Halaman</button>
                             </div>
                         </div>
                         <!-- /.panel-heading -->
@@ -22,6 +22,8 @@
                                     <th>No.</th>
                                     <th>Judul</th>
                                     <th>Type</th>
+                                    <th>On Menu</th>
+                                    <th>Pilih Menu</th>
                                     <th>Action</th>
                                   </tr>
                                 </thead>
@@ -34,7 +36,21 @@
                                         <td><?php echo $i;?></td>
                                         <td><?php echo $key->page;?></td>
                                         <td><?php echo $key->type;?></td>
-                                        <td><a href="<?php echo base_url('Editor/edit/'.$key->id);?>"> Edit </a> </td>
+                                        <td><?php echo $key->on_page;?></td>
+                                        <td><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <?php 
+      foreach ($menu as $ass ) {
+        if ($ass != $key->on_page) {
+          ?><li><a href="<?php echo base_url('Editor/menu/'.$key->id."/".$ass);?>"><?php echo $ass;?></a></li><?php
+        }
+      }
+      ?>
+    </ul>
+  </div></td>
+                                        <td><a href="<?php echo base_url('Editor/edit/'.$key->id);?>" class="btn btn-info"> Edit </a> </td>
                                     </tr>
                                         <?php
                                         $i++;

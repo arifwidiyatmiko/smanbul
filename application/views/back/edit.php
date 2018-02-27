@@ -14,9 +14,22 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <form action="<?php echo base_url('Editor/update/pages/'.$pages[0]->id);?>" method="POST" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <textarea rows="10" id="post_content" name="post_content" class="form-control ckeditor"><?php echo $pages[0]->konten;?></textarea>
-                                </div>
+                                <?php 
+                                if ($pages[0]->type == 'text') {
+                                   ?>
+                                    <div class="form-group">
+                                        <textarea rows="10" id="post_content" name="post_content" class="form-control ckeditor"><?php echo $pages[0]->konten;?></textarea>
+                                    </div>
+                                   <?php
+                                }else{
+                                    ?>
+                                    <div class="form-group">
+                                        <label>Link Tujuan</label>
+                                        <input type="url" name="post_content" class="form-control" value="<?php echo $pages[0]->konten;?>">
+                                    </div>
+                                   <?php
+                                }
+                                ?>
                                 <div class="form-group">
                                     <input type="submit" value="Save" class="btn btn-primary">
                                 </div>

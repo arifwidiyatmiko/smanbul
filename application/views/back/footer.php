@@ -1,12 +1,13 @@
 </div>
     <!-- /#wrapper -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <!-- jQuery -->
-    <script src="<?php echo base_url();?>assets/admin/vendor/jquery/jquery.min.js"></script>
+    
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url();?>assets/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jscolor.js" type="text/javascript"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="<?php echo base_url();?>assets/admin/vendor/metisMenu/metisMenu.min.js"></script>
@@ -59,8 +60,12 @@
 <script type="text/javascript">
       $(document).ready(function() {
         $('#tabel').DataTable();
-        
-        
+        $("#colorpicker").spectrum({
+            color: "#f00"
+        });
+        $("#colorpicker1").spectrum({
+            color: "#000"
+        });
     } );
     </script>
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -89,6 +94,7 @@
                         $('#debug-url').html($(e.relatedTarget).data('book'));
                     });
                 </script>
+                
 
 </body>
 

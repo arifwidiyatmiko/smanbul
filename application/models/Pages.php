@@ -28,9 +28,16 @@ class Pages extends CI_Model {
 		$this->db->where('id', $id);
 		$this->db->update('pages',$data);
 	}
+	
 	public function find($query='')
 	{
 		$this->db->like('page', $query);
+		$res = $this->db->get('pages');
+		return $res;
+	}
+	public function on_menu($query)
+	{
+		$this->db->where('on_page', $query);
 		$res = $this->db->get('pages');
 		return $res;
 	}

@@ -23,9 +23,11 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Post');
+		$this->load->model('Pages');
 		$this->load->model('Headline');
 		$this->load->model('Functional');
 		$this->load->model('Ekstrakulikuler');
+		$this->load->model('Paralax');
 		$this->load->library('pagination');
          
         // load URL helper
@@ -36,7 +38,10 @@ class Welcome extends CI_Controller {
 	{
 		$data['post'] = $this->Post->findAll(4);
 		$data['post_filter'] = $this->Functional->get_enum_values('posting','category');
+		$data['menu'] = $this->Functional->get_enum_values('pages','on_page');
+		$data['slider'] = $this->Functional->findAll('slider');
 		$data['headline']= $this->Headline->getHeadline();
+		$data['paralax']= $this->Paralax->getHeadline();
 		$data['footer'] = $this->Functional->findAll('footer')->result_array();
 		$this->load->view('front/header',$data);
 		$this->load->view('front/index',$data);
@@ -50,6 +55,7 @@ class Welcome extends CI_Controller {
 	{
 		$value = urldecode($value);
 		$data['post'] = $this->Post->findLike($value);
+		$data['menu'] = $this->Functional->get_enum_values('pages','on_page');
 		// print_r($data['post']->num_rows());die();
 		// $data['post_filter'] = $this->Functional->get_enum_values('posting','category');
 		$data['headline']= $this->Headline->getHeadline();
@@ -131,6 +137,7 @@ class Welcome extends CI_Controller {
             $data["links"] = $this->pagination->create_links();
         }
         // $this->load->view('user_listing', $params);	
+        $data['menu'] = $this->Functional->get_enum_values('pages','on_page');
 		$data['post'] = $this->Post->findAll();
 		$data['headline']= $this->Headline->getHeadline();
 		$data['footer'] = $this->Functional->findAll('footer')->result_array();
@@ -140,11 +147,23 @@ class Welcome extends CI_Controller {
 	}
 	public function Ekstrakulikuler($value='')
 	{
+		$data['menu'] = $this->Functional->get_enum_values('pages','on_page');
 		$data['post'] = $this->Ekstrakulikuler->findAll()->result();
 		$data['headline']= $this->Headline->getHeadline();
 		$data['footer'] = $this->Functional->findAll('footer')->result_array();
 		$this->load->view('front/header',$data);
 		$this->load->view('front/ekstrakulikuler',$data);
+		$this->load->view('front/footer',$data);
+	}
+	public function view($value='')
+	{
+		$value = urldecode($value);
+		$data['menu'] = $this->Functional->get_enum_values('pages','on_page');
+		$data['post'] = $this->Pages->find($value);
+		$data['headline']= $this->Headline->getHeadline();
+		$data['footer'] = $this->Functional->findAll('footer')->result_array();
+		$this->load->view('front/header',$data);
+		$this->load->view('front/page',$data);
 		$this->load->view('front/footer',$data);
 	}
 }

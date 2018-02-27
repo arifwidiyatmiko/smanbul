@@ -9,26 +9,24 @@
 
         <!-- Wrapper for Slides -->
         <div class="carousel-inner">
-            <div class="item active">
+            <?php 
+            $i=0;
+            foreach ($slider->result() as $key) {
+            ?>
+            <div class="item <?php if($i==0){echo "active";}?>">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('<?php echo base_url();?>assets/img/bg.jpg');"></div>
+                <div class="fill" style="background-image:url('<?php echo base_url();?>assets/upload/<?php echo $key->image;?>');"></div>
                 <div class="carousel-caption" style="padding-bottom: 100px;">
                     <img class="img-responsive img-center" style="width: 150px;margin: 0 auto;" src="<?php echo base_url();?>assets/img/smanbul.png"></img>
-                    <h1><b>SMA NEGERI 1 CIBUNGBULANG</b></h1>
-                    <p>"Berkarya Bersama, Berprestasi untuk Bangsa"</p>
+                    <h1 style="color: <?php echo $key->warna;?>;"><b><?php echo $key->judul; ?></b></h1>
+                    <p style="color: <?php echo $key->warna1;?>;"><?php echo $key->teks; ?></p>
                     <!-- <h2><a href="http://olinamasi.diploma.ipb.ac.id/Register" class="btn btn-primary">Daftarkan Tim</a></h2> -->
                 </div>
             </div>
-            <div class="item">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('<?php echo base_url();?>assets/img/bg.jpg');"></div>
-                <div class="carousel-caption" style="padding-bottom: 100px;">
-                    <img class="img-responsive img-center" style="width: 150px;margin: 0 auto;" src="<?php echo base_url();?>assets/img/smanbul.png"></img>
-                    <h1><b>SMA NEGERI 1 CIBUNGBULANG</b></h1>
-                    <p>"Berkarya Bersama, Berprestasi untuk Bangsa"</p>
-                    <!-- <h2><a href="http://olinamasi.diploma.ipb.ac.id/Register" class="btn btn-primary">Daftarkan Tim</a></h2> -->
-                </div>
-            </div>
+            <?php
+            $i++;
+            }
+            ?>
         </div>
 
         <!-- Controls -->
@@ -48,7 +46,7 @@
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
-                <h2 class="h-bold">Informati Seputar SMAN 1 Cibungbulang</h2>
+                <h2 class="h-bold">Informasi Seputar SMAN 1 Cibungbulang</h2>
                 <p>Berita, Pengumuman atau Informasi seputar SMAN 1 Cibungbulang.</p>
               </div>
             </div>
@@ -110,13 +108,13 @@
     <!-- /Section: team -->
 
     <!-- Section: testimonial -->
-    <section id="testimonial" class="home-section paddingbot-60 parallax" data-stellar-background-ratio="0.5">
+    <section id="testimonial" style="background-image: url('<?php echo base_url();?>assets/upload/<?php echo $paralax->result_array()[0]['image'];?>');" class="home-section paddingbot-60 parallax" data-stellar-background-ratio="0.5">
       <div class="container marginbot-50">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <div class="wow fadeInDown" data-wow-delay="0.1s">
               <div class="section-heading text-center">
-                <h2 class="h-bold" style="color: white;">Alumni SMA Negeri 1 Cibungbulang</h2>
+                <h2 class="h-bold" style="color: <?php echo $paralax->result_array()[0]['warna'];?>;"><a href="<?php echo $paralax->result_array()[0]['link'];?>"><?php echo $paralax->result_array()[0]['judul'];?></a></h2>
               </div>
             </div>
             <div class="divider-short"></div>

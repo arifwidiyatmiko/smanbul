@@ -18,11 +18,31 @@ class E404 extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Post');
+		$this->load->model('Pages');
+		$this->load->model('Headline');
+		$this->load->model('Functional');
+		$this->load->model('Ekstrakulikuler');
+		$this->load->model('Paralax');
+		$this->load->library('pagination');
+         
+        // load URL helper
+        $this->load->helper('url');
+		// print_r($asd->num_rows());die();
+	}
+
 	public function index()
 	{
-		$this->load->view('front/headers');
+		$data['menu'] = $this->Functional->get_enum_values('pages','on_page');
+		$data['headline']= $this->Headline->getHeadline();
+		$data['footer'] = $this->Functional->findAll('footer')->result_array();
+		$this->load->view('front/header',$data);
 		// $this->load->view('front/404');
 		$this->load->view('construcion');
-		$this->load->view('front/footer');
+		$this->load->view('front/footer',$data);
 	}
 }

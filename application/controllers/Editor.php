@@ -28,6 +28,8 @@ class Editor extends CI_Controller {
 		$this->load->model('Prestasi');
 		$this->load->model('Ekstrakulikuler');
 		$this->load->model('Sarana');
+		$this->load->model('Slider');
+		$this->load->model('Paralax');
 		if (!$this->session->userdata('auth')) {
 			redirect('Welcome/sign');
 		}
@@ -98,6 +100,137 @@ class Editor extends CI_Controller {
 				break;
 		}
 	}
+
+	public function paralax($value='',$id='')
+	{
+		switch ($value) {
+			case 'insert':
+				$config['upload_path'] = 'assets/upload/';
+		        $config['allowed_types'] = 'jpg|png|jpeg';
+		        $config['max_size'] = 0;
+		        $this->load->library('upload', $config);
+		        if ( ! $this->upload->do_upload('image')) {
+		        	$this->session->set_flashdata('err',$this->upload->display_errors());
+		        	// echo $this->upload->display_errors();die();
+		          	redirect('Editor/paralax');
+		        } else {
+		            $file = $this->upload->data();
+		            $image = $file['file_name'];
+		        }
+				$data = array('judul' => $this->input->post('judul'),'link' => $this->input->post('link'),'image' => $image,'warna'=>$this->input->post('warna') );
+				$this->Paralax->insert($data);
+				redirect('Editor/paralax','refresh');
+				break;
+			case 'edit':
+				$result['pages'] = $this->Paralax->findId($id)->result();
+				$this->load->view('back/header');
+				$this->load->view('back/edit_paralax',$result);
+				$this->load->view('back/footer');
+				break;
+			case 'update':
+				if ($_FILES['image']['size'] != 0) {
+					$config['upload_path'] = 'assets/upload/';
+			        $config['allowed_types'] = 'jpg|png|jpeg';
+			        $config['max_size'] = 0;
+			        $this->load->library('upload', $config);
+			        if ( ! $this->upload->do_upload('image')) {
+			        	$this->session->set_flashdata('err',$this->upload->display_errors());
+			          	redirect('Editor/paralax/edit/'.$id);
+			        } else {
+			            $file = $this->upload->data();
+			            $image = $file['file_name'];
+			        }
+				}else{$image = $this->input->post('file');}
+				$data = array('judul' => $this->input->post('judul'),'link' => $this->input->post('link'),'image' => $image,'warna'=>$this->input->post('warna'));
+				// print_r($data);die();
+				$this->Paralax->update($id,$data);
+				redirect('Editor/paralax','refresh');
+				break;
+			case 'delete':
+				// echo $id;die();
+				$this->Paralax->delete($id);
+				redirect('Editor/paralax','refresh');
+				break;
+			case 'active':
+				$this->Paralax->default();
+				$this->Paralax->update($id,array('status'=>1));
+				redirect('Editor/paralax','refresh');
+				break;
+			case 'deactive':
+				// echo $id;die();
+				$this->Paralax->default();
+				$this->Paralax->update($id,array('status'=>0));
+				redirect('Editor/paralax','refresh');
+				break;
+			default:
+				$result['data'] = $this->Paralax->findAll();
+				$this->load->view('back/header');
+				$this->load->view('back/paralax',$result);
+				$this->load->view('back/footer');
+				break;
+		}
+	}
+
+	public function slider($value='',$id='')
+	{
+		switch ($value) {
+			case 'insert':
+				$config['upload_path'] = 'assets/upload/';
+		        $config['allowed_types'] = 'jpg|png|jpeg';
+		        $config['max_size'] = 0;
+		        $this->load->library('upload', $config);
+		        if ( ! $this->upload->do_upload('image')) {
+		        	$this->session->set_flashdata('err',$this->upload->display_errors());
+		        	// echo $this->upload->display_errors();die();
+		          	redirect('Editor/sarana');
+		        } else {
+		            $file = $this->upload->data();
+		            $image = $file['file_name'];
+		        }
+				$data = array('judul' => $this->input->post('judul'),'teks' => $this->input->post('teks'),'image' => $image ,'warna'=>$this->input->post('warna'),'warna1' => $this->input->post('warna1'));
+				// print_r($data);	 die();
+				$this->Slider->insert($data);
+				redirect('Editor/slider','refresh');
+				break;
+			case 'edit':
+				$result['pages'] = $this->Slider->findId($id)->result();
+				$this->load->view('back/header');
+				$this->load->view('back/edit_slider',$result);
+				$this->load->view('back/footer');
+				break;
+			case 'update':
+				if ($_FILES['image']['size'] != 0) {
+					$config['upload_path'] = 'assets/upload/';
+			        $config['allowed_types'] = 'jpg|png|jpeg';
+			        $config['max_size'] = 0;
+			        $this->load->library('upload', $config);
+			        if ( ! $this->upload->do_upload('image')) {
+			        	$this->session->set_flashdata('err',$this->upload->display_errors());
+			          	redirect('Editor/sarana/edit/'.$id);
+			        } else {
+			            $file = $this->upload->data();
+			            $image = $file['file_name'];
+			        }
+				}else{$image = $this->input->post('file');}
+				
+				$data = array('judul' => $this->input->post('judul'),'teks' => $this->input->post('teks'),'image' => $image ,'warna'=>$this->input->post('warna'),'warna1' => $this->input->post('warna1'));
+				// print_r($data);die();
+				$this->Slider->update($id,$data);
+				redirect('Editor/slider','refresh');
+				break;
+			case 'delete':
+				// echo $id;die();
+				$this->Slider->delete($id);
+				redirect('Editor/slider','refresh');
+				break;
+			default:
+				$result['data'] = $this->Slider->findAll();
+				$this->load->view('back/header');
+				$this->load->view('back/slider',$result);
+				$this->load->view('back/footer');
+				break;
+		}
+	}
 	public function Sarana($value='',$id='')
 	{
 		switch ($value) {
@@ -140,7 +273,7 @@ class Editor extends CI_Controller {
 			            $image = $file['file_name'];
 			        }
 				}
-				$image = $this->input->post('file');
+				else{$image = $this->input->post('file');}
 				$data = array('title' => $this->input->post('title'),'konten' => $this->input->post('konten'),'image' => $image );
 				// print_r($data);die();
 				$this->Sarana->update($id,$data);
@@ -159,12 +292,21 @@ class Editor extends CI_Controller {
 				break;
 		}
 	}
+
+	public function menu($id,$enum)
+	{
+		$data = array('on_page' => $enum);
+		$this->Pages->update($id,$data);
+		redirect('Editor/list','refresh');
+	}
+
 	public function list($value='')
 	{	
 		switch ($value) {
 			case 'pages':
 				$result['pages'] = $this->Pages->findAll()->result();
 				$result['dropdown'] = $this->Functional->get_enum_values('pages','type');
+				$result['menu'] = $this->Functional->get_enum_values('pages','on_page');
 				$this->load->view('back/header');
 				$this->load->view('back/pages',$result);
 				$this->load->view('back/footer');
@@ -180,8 +322,9 @@ class Editor extends CI_Controller {
 			default:
 				$result['pages'] = $this->Pages->findAll()->result();
 				$result['dropdown'] = $this->Functional->get_enum_values('pages','type');
+				$result['menu'] = $this->Functional->get_enum_values('pages','on_page');
 				$this->load->view('back/header');
-				// $this->load->view('back/pages',$result);
+				$this->load->view('back/pages',$result);
 				$this->load->view('back/footer');
 				break;
 		}
